@@ -1,47 +1,15 @@
 const API = require('../../utils/api')
 const MAP = require('../../utils/map')
-const WEATHER = require('../../utils/constants').WEATHER
 
 Page({
   data: {
     isLoading: true,
     location: '',
-    weather: {
-      templ: '',
-      desc: '',
-      icon: ''
-    },
     canteen: []
   },
   onLoad: function () {
-    this._fetchWeather()
     this._fetchLocation()
     this._fetchAllCanteen()
-  },
-  onReady: function () {
-
-  },
-  /**
-   * 点击了tab重新排序
-   */
-  tapView: function (e) {
-    const id = e.detail.id
-    const canteen = this.data.canteen
-
-    if (id == 0) return this.setData({
-      canteen: canteen.sort((a, b) => (a.id < b.id ? -1 : 1))
-    })
-    if (id == 1) return this.setData({
-      canteen: canteen.sort((a, b) => (a.monthSell < b.monthSell ? 1 : -1))
-    })
-    if (id == 2) return this.setData({
-      canteen: canteen.sort((a, b) => (a.rate < b.rate ? 1 : -1))
-    })
-  },
-  tapSearch: function () {
-    wx.navigateTo({
-      url: `../search/search`
-    })
   },
   /**
    * @event 点击店铺跳转事件
@@ -93,22 +61,4 @@ Page({
       }
     })
   },
-  /**
-   * @event 获取天气详情
-   */
-  _fetchWeather: function () {
-    wx.request({
-      url: API.weather,
-      success: res => {
-        const data = res.data.data
-        this.setData({
-          weather: {
-            templ: data.tmpl,
-            icon: WEATHER[data.type].icon,
-            desc: WEATHER[data.type].desc
-          }
-        })
-      }
-    })
-  }
 })

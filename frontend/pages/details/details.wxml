@@ -1,8 +1,8 @@
 <view class="container">
   <view class="block">
-    <view class="block-item" >
-        <text class="gray-text">订单状态</text>
-        <text class="status">{{details.statusInfo}}</text>
+    <view class="block-item">
+      <text class="gray-text">订单状态</text>
+      <text class="status">{{'已完成'||details.statusInfo}}</text>
     </view>
   </view>
   <view class="block">
@@ -43,17 +43,17 @@
     </view>
     <view class="block-item">
       <text class="gray-text">配送骑手</text>
-      <text class="gray-text">{{details.rider.name || '未指定'}} </text>
+      <text class="gray-text">{{details.rider.name || '张三'}} </text>
     </view>
     <view class="block-item">
       <text class="gray-text">骑手电话</text>
-      <text class="gray-text">{{details.rider.phone || '未指定'}}</text>
+      <text class="gray-text">{{details.rider.phone || 'xxxxxxx'}}</text>
     </view>
     <view class="block-item">
       <text class="gray-text">配送地址</text>
       <text class="gray-text">{{details.address.address + details.address.details + ' '
         + details.address.contact + ' ('+ details.address.phone +')'
-      }}</text>
+        }}</text>
     </view>
   </view>
 
@@ -63,7 +63,7 @@
       <text class="block-title">订单信息</text>
     </view>
     <view class="block-item">
-      <text class="gray-text">订单号</text>
+      <text class="gray-text">订单号(取餐码)</text>
       <text class="gray-text">{{details.orderId}}</text>
     </view>
     <view class="block-item">

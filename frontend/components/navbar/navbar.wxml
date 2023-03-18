@@ -1,12 +1,12 @@
 <view class="navbar" wx:if="{{tabs.length > 0}}">
-  <view class="tabs">
+  <!-- <view class="tabs">
     <block wx:for="{{tabs}}" wx:key="*this">
       <view id="{{index}}" class="tabs-item {{activeIndex == index ? 'tabs-item-on' : ''}}" bindtap="tabClick">
         <text class="tabs-item-text">{{item}}</text>
       </view>
     </block>
     <view class="slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-  </view>
+  </view> -->
   <view class="panel">
     <view hidden="{{activeIndex != 0}}">
       <slot name="tabs-0"></slot>

@@ -19,18 +19,8 @@ App({
         })
       },
       fail: () => {
-        /**
-         * TEST 环境
-         */
-        wx.request({
-          url: API.login.replace(':code', ''),
-          method: 'POST',
-          success: res => {
-
-            // 登录成功
-            this.globalData.token = res.data.data.token
-            this.globalData.user = res.data.data.user
-          }
+        wx.showToast({
+          title: '登录失败~请稍后重试!',
         })
       }
     })

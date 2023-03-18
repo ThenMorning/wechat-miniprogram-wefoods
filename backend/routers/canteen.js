@@ -6,15 +6,6 @@ const router = require('koa-router')()
  * @get/       获取食堂信息
  */
 router
-    .get('/api/canteen/rating', async ctx => {
-        let canteenId = ctx.query.canteenId
-        let res = await SQL.findCanteenRating(canteenId)
-        ctx.body = {
-            code: 200,
-            data: res,
-            message: 'success'
-        }
-    })
     .get('/api/canteen', async ctx => {
         let canteenId = ctx.query.canteenId
         let res = await SQL.findCanteen(canteenId)

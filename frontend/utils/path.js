@@ -25,14 +25,6 @@ function toPath(url, keyValues) {
   return url + result
 }
 
-// TEST
-
-// console.log(toPath('../user/user', {
-//   p1: 22,
-//   p2: 33,
-//   p3: 44
-// }))
-
 module.exports = {
   toPath: toPath
 }

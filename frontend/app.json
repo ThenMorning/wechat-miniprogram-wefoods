@@ -7,19 +7,13 @@
     "pages/pay/pay",
     "pages/address/address",
     "pages/addressOpreate/addressOpreate",
-    "pages/recharge/recharge",
-    "pages/coupon/coupon",
-    "pages/search/search",
-    "pages/details/details",
-    "pages/comment/comment",
-    "pages/_index/_index",
-    "pages/_manager/_manager"
+    "pages/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#428bca",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
   "permission": {
     "scope.userLocation": {
@@ -36,7 +30,7 @@
         "pagePath": "pages/index/index",
         "iconPath": "icons/tabbar/h1.x64.png",
         "selectedIconPath": "icons/tabbar/h2.x64.png",
-        "text": "外卖"
+        "text": "商家"
       },
       {
         "pagePath": "pages/order/order",

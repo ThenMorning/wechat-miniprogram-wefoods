@@ -56,8 +56,6 @@ router
             }
         } else {
             // 登录成功 返回用户数据和token    
-            let coupon = await SQL.COUPON.findCoupon(res[0].id)
-            res[0].coupon = coupon.length
 
             ctx.body = {
                 code: 200,
@@ -79,8 +77,6 @@ router
         let res = await SQL.USER.findUserByOpenId('ovkFd5ZS5C51-3lH3YKJ2qlXRO2A')
 
         // 登录成功 返回用户数据和token    
-        let coupon = await SQL.COUPON.findCoupon(res[0].id)
-        res[0].coupon = coupon.length
 
         ctx.body = {
             code: 200,

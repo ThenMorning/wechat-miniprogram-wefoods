@@ -1,6 +1,13 @@
+.shop{
+  width:100%;
+  height: 90vh;
+  overflow: hidden;
+}
 .info {
   position: relative;
   z-index: 9;
+  height: 16vh;
+  margin-bottom: 4px;
 }
 
 /* 顶部信息 */
@@ -9,7 +16,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 12vh;
+  height: 4vh;
   overflow: hidden;
   background: linear-gradient(#428bca, #489ceb, #5fa9ed);
 }
@@ -39,59 +46,18 @@
 
 .info-details {
   text-align: center;
-  padding-bottom: 6px;
-  margin-bottom: 8px;
+  /* padding-bottom: 6px;
+  margin-bottom: 8px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-details-name {
   font-size: 40rpx;
-  margin: 28rpx 0;
+  margin-bottom: 8rpx;
   color: #333;
-}
-
-/* 评价 */
-
-.comment-advance {
-  display: flex;
-  align-items: center;
-  padding: 10px 10px 10px 20px;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  border-top: 1px solid #f1f1f1;
-  border-bottom: 1px solid #f1f1f1;
-}
-
-.comment-advance-left, .comment-advance-right {
-  display: flex;
-  align-items: center;
-}
-
-.comment-advance-right {
-  padding: 4px 2px;
-  border-left: 1px solid #f9f9f9;
-}
-
-.left-score {
-  font-size: 52rpx;
-  font-weight: 700;
-  margin-left: 24px;
-  word-spacing: 2px;
-  color: #ea6f5a;
-}
-
-.left-rate {
-  margin: 1px 0 0 10px;
-}
-
-.left-rate > text {
-  font-size: 32rpx;
-  color: gray;
-}
-
-.comment-types {
-  padding: 10px 6px;
-  border-top: 1px solid #f1f1f1;
-  border-bottom: 1px;
 }
 
 /* 商家 */
@@ -153,41 +119,4 @@
 .tmpl-score-score {
   font-size: 36rpx;
   color: gray;
-}
-
-/* 类别筛选 */
-
-.comment-types {
-  display: flex;
-  align-items: center;
-  padding: 18px 6px;
-}
-
-.tmpl-types {
-  display: inline-block;
-  margin-right: 14px;
-}
-
-.tmpl-types > text {
-  padding: 4px 6px;
-  border-radius: 4px;
-  border: 1px;
-}
-
-.tmpl-types-primary {
-  background-color: #428bca;
-  color: #fff;
-  font-size: 30rpx;
-}
-
-.tmpl-types-common {
-  background-color: #ebf5ff;
-  color: #6d7885;
-  font-size: 30rpx;
-}
-
-.tmpl-types-poor {
-  background-color: #f5f5f5;
-  color: #aaa;
-  font-size: 30rpx;
 }

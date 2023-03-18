@@ -18,7 +18,7 @@
     </view>
     <view class="block-item">
       <text class="black-text">支付方式</text>
-      <text class="blue-text">余额支付</text>
+      <text class="blue-text">校园卡余额支付</text>
     </view>
   </view>
   <view class="block">
@@ -43,19 +43,6 @@
       </view>
     </view>
     <view class="block-item">
-      <text class="black-text">优惠券</text>
-      <view style="display:inline-block">
-        <block wx:if="{{!selectCoupon.id}}">
-          <text class="gray-text" bindtap="tapCoupon">
-            {{userCoupon.length > 0 ? '选择优惠券': '无可用优惠券'}}
-          </text>
-        </block>
-        <text class="red-text" bindtap="tapCoupon" wx:else>
-          {{selectCoupon.name + '(-¥' + selectCoupon.amount +')'}}
-        </text>
-      </view>
-    </view>
-    <view class="block-item">
       <text class="foods-total">
         合计
         <text class="price">¥{{total}}</text>
@@ -74,9 +61,6 @@
 <view class="deal">
   <view class="deal-total">
     合计 ¥{{total}}
-    <text class="red-text" wx:if="{{selectCoupon.id}}">
-      {{ '(已优惠¥' + selectCoupon.amount +')'}}
-    </text>
   </view>
   <view class="deal-pay" bindtap="tapSubmitOrder">
     <text>确认支付</text>
@@ -99,21 +83,6 @@
         </text>
       </view>
       <text wx:if="{{item.tag}}" class="popTag">{{item.tag}}</text>
-    </view>
-  </view>
-</pop>
-<pop visible="{{popCoupon}}" bindisVisible="isVisible" data-type="coupon">
-  <view slot="slot" class="popCoupon">
-    <view class="popHeader">
-      <text style="color:#333">选择优惠券</text>
-    </view>
-    <view wx:for="{{userCoupon}}" wx:key="{{index}}" class="popItem" data-index="{{index}}" bindtap="tapSelectCoupon">
-      <text class="popAmount">¥ {{item.amount}}</text>
-      <view class="popMain">
-        <text class="name">{{item.name}}</text>
-        <text class="des">{{item.des}}</text>
-      </view>
-      <text class="popDate">有效期至{{ item.end }}</text>
     </view>
   </view>
 </pop>

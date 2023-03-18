@@ -26,7 +26,6 @@ router
 
         if (res) {
             let user = await SQL.findUserByOpenId(openId)
-            user[0].coupon = 0
 
             ctx.body = {
                 code: 200,

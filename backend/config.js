@@ -13,8 +13,8 @@ module.exports = {
     // 微信小程序配置
     // 用于登录请求
     customer: {
-        appid: 'wx85a68bdfcf0eac76',
-        appsecret: '80a459b396467fa79b75bd8dd2144b05'
+        appid: 'wx1bf6861212610fd5',
+        appsecret: '4859d40ed04842594d76f3fc07a8abd5'
     }, 
 
     // 数据库设置

@@ -17,15 +17,11 @@ router
         } = query
 
         const {
-            couponId,
             foods
         } = query
 
         await SQL.ORDER.insertOrder(canteenId, addressId, note, date, price, shipping).then(async res => {
             const orderId = res.insertId
-            if (couponId) {
-                await SQL.COUPON.updateCoupon(couponId, orderId)
-            }
             for (let food of foods) {
                 let goodsId = food.id,
                     count = food.count
@@ -48,13 +44,12 @@ router
         const overview = await SQL.ORDER.findOrderOverview('userId', token.data)
         const res = []
 
-        let canteen, address, rider, details
+        let canteen, address, details
 
         for (let item of overview) {
             canteen = (await SQL.CANTEEN.findCanteen(item.canteenId))[0]
             address = (await SQL.ADDRESS.searchAddress(item.addressId))[0]
             details = await SQL.ORDER.findOrderDetails(item.orderId)
-            item.riderId ? rider = (await SQL.RIDER.findRider(item.riderId))[0] : rider = undefined
 
             res.push({
                 orderId: item.orderId,
@@ -64,7 +59,6 @@ router
                 orderDate: item.orderDate,
                 canteen,
                 address,
-                rider,
                 details,
                 detailsInfo: util.renderDetails(details),
                 statusInfo: ORDER[item.status].value

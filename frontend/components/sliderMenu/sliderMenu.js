@@ -23,9 +23,10 @@ Component({
     length: 0,
     total: 0
   },
+  oldScrollTop: 0,
   lifetimes: {
     ready() {
-      this._fetchGoods()
+      this._fetchGoods();
     }
   },
   pageLifetimes: {
@@ -47,6 +48,8 @@ Component({
         success: res => {
           this.setData({
             goods: res.data.data
+          }, () => {
+            this.listenScroll();
           })
         },
         fail: err => {
@@ -167,18 +170,37 @@ Component({
       })
     },
     tapActive(e) {
-      const id = e.currentTarget.id
+      const {
+        currentTarget: {
+          dataset: {
+            index
+          }
+        }
+      } = e;
       this.setData({
-        active: +id
+        active: index,
+        activeTips:index
       })
-      this.createSelectorQuery().select('#tips' + id).boundingClientRect(res => {
-        const top = res.top
-        wx.pageScrollTo({
-          scrollTop: top,
-          duration: 400
+    },
+    listenScroll() {
+      this._observer = wx.createIntersectionObserver(this, {
+        observeAll: true
+      })
+      const {
+        windowHeight
+      } = wx.getSystemInfoSync();
+      this._observer
+        .relativeTo('.scroll-view', {
+          top: 0,
+          bottom: -(windowHeight / 100 * 84 - 4 - 5)
         })
-      }).exec()
-
+        .observe('.foods-list', (res) => {
+          if (res.intersectionRatio) {
+            this.setData({
+              active: res.dataset.index
+            })
+          }
+        })
     }
   }
 })

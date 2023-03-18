@@ -1,20 +1,17 @@
 const API = require('../../utils/api')
 
 const MENU_MAIN = require('../../utils/constants').MENU_MAIN
-const MENU_OTHTER = require('../../utils/constants').MENU_OTHER
 const app = getApp()
 
 Page({
   data: {
     user: {},
     mainMenu: null,
-    otherMenu: null
   },
   onLoad: function() {
     // setData
     this.setData({
-      mainMenu: MENU_MAIN,
-      otherMenu: MENU_OTHTER
+      mainMenu: MENU_MAIN
     })   
   },
   onShow: function(){

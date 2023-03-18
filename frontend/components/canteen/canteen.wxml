@@ -21,10 +21,10 @@
     </view>
     <view class="canteen-ship">
       <view>
-        <star style="display:inline" rate="+{{ data.rate }}" />
+        <star style="display:inline" rate="+{{ data.rate || 5}}" />
       </view>
       <view>
-        <text class="text-minor"><text class="price">¥{{data.lowest}}</text>起送 | 配送费<text class="price">¥{{data.shipping}}</text>
+        <text class="text-minor">配送费<text class="price">¥{{data.shipping}}</text>
         </text>
       </view>
     </view>

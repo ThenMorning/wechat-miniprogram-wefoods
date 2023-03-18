@@ -7,9 +7,5 @@ Component({
       type: Object,
       value: {}
     }
-  },
-  lifetimes:{
-    attached: function(){
-    }
   }
 })
